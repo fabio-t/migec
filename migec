@@ -2,14 +2,6 @@
 
 java="java"
 
-sedString="s/.*1\.\(.*\)\..*/\1/"
-jVersion=$($java -version 2>&1 | grep version | awk '{ print $3 }' | sed $sedString)
-if [[ $jVersion -lt 7 ]];
-then
-    echo "Wrong java version. Please use Java 7 or higher."
-    exit 1
-fi
-
 # Linux readlink -f alternative for Mac OS X
 function readlinkUniversal() {
     targetFile=$1
